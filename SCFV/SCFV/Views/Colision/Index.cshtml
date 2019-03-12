@@ -17,7 +17,7 @@
 
     </div>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Crear nuevo", "Create")
     </p>
     <table class="table">
         <tr>
@@ -70,9 +70,9 @@
                     @Html.DisplayFor(modelItem => item.Vehiculo.placa)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.idColision }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.idColision }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.idColision })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idColision }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idColision }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idColision })
                 </td>
             </tr>
         }

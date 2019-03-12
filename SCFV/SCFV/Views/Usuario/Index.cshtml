@@ -14,7 +14,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Ingresar Usuario", "Create")
     </p>
     <table class="table">
         <tr>
@@ -60,9 +60,9 @@
                 @Html.DisplayFor(modelItem => item.cedula)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.idUsuario }) |
-                @Html.ActionLink("Details", "Details", new { id=item.idUsuario }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.idUsuario })
+                @Html.ActionLink("Editar", "Edit", new { id=item.idUsuario }) |
+                @Html.ActionLink("Detalles", "Details", new { id=item.idUsuario }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id=item.idUsuario })
             </td>
         </tr>
     }
