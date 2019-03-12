@@ -1,0 +1,88 @@
+﻿@model SCFV.Models.Colisiones
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Colisiones</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaColision)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fechaColision)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sentenciaFirme)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sentenciaFirme)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.avisoAccidente)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.avisoAccidente)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.seguro)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.seguro)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Conductor.nombreChofer)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Conductor.nombreChofer)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Vehiculo.placa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Vehiculo.placa)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

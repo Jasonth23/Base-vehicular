@@ -1,0 +1,112 @@
+﻿@model SCFV.Models.Reparaciones
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Reparaciones</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.fecha)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fecha)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.costoTotal)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.costoTotal)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.montoReserva)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.montoReserva)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.kmInicial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.kmInicial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.kmFinal)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.kmFinal)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.numFactura)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.numFactura)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Conductor.nombreChofer)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Conductor.nombreChofer)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Taller.cedJuridica)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Taller.cedJuridica)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Vehiculo.placa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Vehiculo.placa)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

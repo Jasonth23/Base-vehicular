@@ -1,0 +1,82 @@
+﻿@model IEnumerable<SCFV.Models.Colisiones>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="jumbotron">
+
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaColision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sentenciaFirme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.avisoAccidente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seguro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Conductor.nombreChofer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculo.placa)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaColision)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sentenciaFirme)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.avisoAccidente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.seguro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Conductor.nombreChofer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vehiculo.placa)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.idColision }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.idColision }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.idColision })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

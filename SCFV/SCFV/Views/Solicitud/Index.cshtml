@@ -1,0 +1,122 @@
+﻿@model IEnumerable<SCFV.Models.Solicitud>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreSolicitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nomDeparta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.destino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.justificacionSalida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaSolicitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaSalida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numConsecutivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.funcionarioViaja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.observaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Conductor.nombreChofer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.nomUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculo.placa)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreSolicitante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomDeparta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.destino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.justificacionSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaSolicitud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numConsecutivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.funcionarioViaja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.observaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conductor.nombreChofer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.nomUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehiculo.placa)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idSolicitud }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idSolicitud }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idSolicitud })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

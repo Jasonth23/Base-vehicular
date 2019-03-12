@@ -1,0 +1,736 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BD_CFVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="manteId" />
+          </Key>
+          <Property Name="manteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuarioId" Type="int" Nullable="false" />
+          <Property Name="accion" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="tabla" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="Colisiones">
+          <Key>
+            <PropertyRef Name="idColision" />
+          </Key>
+          <Property Name="idColision" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idConductor" Type="int" Nullable="false" />
+          <Property Name="idVehiculo" Type="int" Nullable="false" />
+          <Property Name="fechaColision" Type="date" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="sentenciaFirme" Type="varbinary(max)" Nullable="false" />
+          <Property Name="avisoAccidente" Type="varbinary(max)" Nullable="false" />
+          <Property Name="seguro" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Conductor">
+          <Key>
+            <PropertyRef Name="idConductor" />
+          </Key>
+          <Property Name="idConductor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cedula" Type="int" Nullable="false" />
+          <Property Name="nombreChofer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="tipoLicencia" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="descripHabilitado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Reparaciones">
+          <Key>
+            <PropertyRef Name="reparacionId" />
+          </Key>
+          <Property Name="reparacionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tallerId" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="costoTotal" Type="float" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="montoReserva" Type="float" Nullable="false" />
+          <Property Name="kmInicial" Type="float" Nullable="false" />
+          <Property Name="kmFinal" Type="float" Nullable="false" />
+          <Property Name="numFactura" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="idConductor" Type="int" Nullable="false" />
+          <Property Name="idVehiculo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Solicitud">
+          <Key>
+            <PropertyRef Name="idSolicitud" />
+          </Key>
+          <Property Name="idSolicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="idVehiculo" Type="int" Nullable="false" />
+          <Property Name="idConductor" Type="int" Nullable="false" />
+          <Property Name="nombreSolicitante" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nomDeparta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="destino" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="justificacionSalida" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fechaSolicitud" Type="date" Nullable="false" />
+          <Property Name="fechaSalida" Type="datetime" Nullable="false" />
+          <Property Name="fechaEntrada" Type="datetime" Nullable="false" />
+          <Property Name="numConsecutivo" Type="int" Nullable="false" />
+          <Property Name="funcionarioViaja" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="observaciones" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Taller">
+          <Key>
+            <PropertyRef Name="idTaller" />
+          </Key>
+          <Property Name="idTaller" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cedJuridica" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nombreTaller" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="especialidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ubicacion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="representante" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="descripHabilitado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cedula" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="idVehiculo" />
+          </Key>
+          <Property Name="idVehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="placa" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="tipoLlanta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipoChasis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipoMotor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipoVehiculo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="poliza" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="comprado" Type="bit" Nullable="false" />
+          <Property Name="numFactura" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="costo" Type="float" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="descripHabilitado" Type="varchar" MaxLength="100" />
+          <Property Name="donadoPor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Bitacora_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="usuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Colisiones_Conductor">
+          <End Role="Conductor" Type="Self.Conductor" Multiplicity="1" />
+          <End Role="Colisiones" Type="Self.Colisiones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conductor">
+              <PropertyRef Name="idConductor" />
+            </Principal>
+            <Dependent Role="Colisiones">
+              <PropertyRef Name="idConductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Colisiones_Vehiculo">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Colisiones" Type="Self.Colisiones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="idVehiculo" />
+            </Principal>
+            <Dependent Role="Colisiones">
+              <PropertyRef Name="idVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reparaciones_Conductor">
+          <End Role="Conductor" Type="Self.Conductor" Multiplicity="1" />
+          <End Role="Reparaciones" Type="Self.Reparaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conductor">
+              <PropertyRef Name="idConductor" />
+            </Principal>
+            <Dependent Role="Reparaciones">
+              <PropertyRef Name="idConductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reparaciones_Taller">
+          <End Role="Taller" Type="Self.Taller" Multiplicity="1" />
+          <End Role="Reparaciones" Type="Self.Reparaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Taller">
+              <PropertyRef Name="idTaller" />
+            </Principal>
+            <Dependent Role="Reparaciones">
+              <PropertyRef Name="tallerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reparaciones_Vehiculo">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Reparaciones" Type="Self.Reparaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="idVehiculo" />
+            </Principal>
+            <Dependent Role="Reparaciones">
+              <PropertyRef Name="idVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Conductor">
+          <End Role="Conductor" Type="Self.Conductor" Multiplicity="1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conductor">
+              <PropertyRef Name="idConductor" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idConductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Vehiculo">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="idVehiculo" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_CFVModelStoreContainer">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colisiones" EntityType="Self.Colisiones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Conductor" EntityType="Self.Conductor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reparaciones" EntityType="Self.Reparaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solicitud" EntityType="Self.Solicitud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Taller" EntityType="Self.Taller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bitacora_usuario" Association="Self.FK_Bitacora_usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Colisiones_Conductor" Association="Self.FK_Colisiones_Conductor">
+            <End Role="Conductor" EntitySet="Conductor" />
+            <End Role="Colisiones" EntitySet="Colisiones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Colisiones_Vehiculo" Association="Self.FK_Colisiones_Vehiculo">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Colisiones" EntitySet="Colisiones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reparaciones_Conductor" Association="Self.FK_Reparaciones_Conductor">
+            <End Role="Conductor" EntitySet="Conductor" />
+            <End Role="Reparaciones" EntitySet="Reparaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reparaciones_Taller" Association="Self.FK_Reparaciones_Taller">
+            <End Role="Taller" EntitySet="Taller" />
+            <End Role="Reparaciones" EntitySet="Reparaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reparaciones_Vehiculo" Association="Self.FK_Reparaciones_Vehiculo">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Reparaciones" EntitySet="Reparaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Conductor" Association="Self.FK_Solicitud_Conductor">
+            <End Role="Conductor" EntitySet="Conductor" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Usuario" Association="Self.FK_Solicitud_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Vehiculo" Association="Self.FK_Solicitud_Vehiculo">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_CFVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="manteId" />
+          </Key>
+          <Property Name="manteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuarioId" Type="Int32" Nullable="false" />
+          <Property Name="accion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tabla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Bitacora_usuario" FromRole="Bitacora" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Colisiones">
+          <Key>
+            <PropertyRef Name="idColision" />
+          </Key>
+          <Property Name="idColision" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idConductor" Type="Int32" Nullable="false" />
+          <Property Name="idVehiculo" Type="Int32" Nullable="false" />
+          <Property Name="fechaColision" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sentenciaFirme" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="avisoAccidente" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="seguro" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="Conductor" Relationship="Self.FK_Colisiones_Conductor" FromRole="Colisiones" ToRole="Conductor" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Colisiones_Vehiculo" FromRole="Colisiones" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="Conductor">
+          <Key>
+            <PropertyRef Name="idConductor" />
+          </Key>
+          <Property Name="idConductor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedula" Type="Int32" Nullable="false" />
+          <Property Name="nombreChofer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="tipoLicencia" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="descripHabilitado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Colisiones" Relationship="Self.FK_Colisiones_Conductor" FromRole="Conductor" ToRole="Colisiones" />
+          <NavigationProperty Name="Reparaciones" Relationship="Self.FK_Reparaciones_Conductor" FromRole="Conductor" ToRole="Reparaciones" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK_Solicitud_Conductor" FromRole="Conductor" ToRole="Solicitud" />
+        </EntityType>
+        <EntityType Name="Reparaciones">
+          <Key>
+            <PropertyRef Name="reparacionId" />
+          </Key>
+          <Property Name="reparacionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tallerId" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="costoTotal" Type="Double" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="montoReserva" Type="Double" Nullable="false" />
+          <Property Name="kmInicial" Type="Double" Nullable="false" />
+          <Property Name="kmFinal" Type="Double" Nullable="false" />
+          <Property Name="numFactura" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idConductor" Type="Int32" Nullable="false" />
+          <Property Name="idVehiculo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conductor" Relationship="Self.FK_Reparaciones_Conductor" FromRole="Reparaciones" ToRole="Conductor" />
+          <NavigationProperty Name="Taller" Relationship="Self.FK_Reparaciones_Taller" FromRole="Reparaciones" ToRole="Taller" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Reparaciones_Vehiculo" FromRole="Reparaciones" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="Solicitud">
+          <Key>
+            <PropertyRef Name="idSolicitud" />
+          </Key>
+          <Property Name="idSolicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="idVehiculo" Type="Int32" Nullable="false" />
+          <Property Name="idConductor" Type="Int32" Nullable="false" />
+          <Property Name="nombreSolicitante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomDeparta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="destino" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="justificacionSalida" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaSolicitud" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaSalida" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaEntrada" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="numConsecutivo" Type="Int32" Nullable="false" />
+          <Property Name="funcionarioViaja" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Conductor" Relationship="Self.FK_Solicitud_Conductor" FromRole="Solicitud" ToRole="Conductor" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Solicitud_Usuario" FromRole="Solicitud" ToRole="Usuario" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Solicitud_Vehiculo" FromRole="Solicitud" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="Taller">
+          <Key>
+            <PropertyRef Name="idTaller" />
+          </Key>
+          <Property Name="idTaller" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedJuridica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreTaller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="especialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="representante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="descripHabilitado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reparaciones" Relationship="Self.FK_Reparaciones_Taller" FromRole="Taller" ToRole="Reparaciones" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Bitacora" Relationship="Self.FK_Bitacora_usuario" FromRole="Usuario" ToRole="Bitacora" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK_Solicitud_Usuario" FromRole="Usuario" ToRole="Solicitud" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="idVehiculo" />
+          </Key>
+          <Property Name="idVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="placa" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoLlanta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoChasis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoMotor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoVehiculo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poliza" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comprado" Type="Boolean" Nullable="false" />
+          <Property Name="numFactura" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="costo" Type="Double" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="descripHabilitado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="donadoPor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Colisiones" Relationship="Self.FK_Colisiones_Vehiculo" FromRole="Vehiculo" ToRole="Colisiones" />
+          <NavigationProperty Name="Reparaciones" Relationship="Self.FK_Reparaciones_Vehiculo" FromRole="Vehiculo" ToRole="Reparaciones" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK_Solicitud_Vehiculo" FromRole="Vehiculo" ToRole="Solicitud" />
+        </EntityType>
+        <Association Name="FK_Bitacora_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="usuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Colisiones_Conductor">
+          <End Role="Conductor" Type="Self.Conductor" Multiplicity="1" />
+          <End Role="Colisiones" Type="Self.Colisiones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conductor">
+              <PropertyRef Name="idConductor" />
+            </Principal>
+            <Dependent Role="Colisiones">
+              <PropertyRef Name="idConductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Colisiones_Vehiculo">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Colisiones" Type="Self.Colisiones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="idVehiculo" />
+            </Principal>
+            <Dependent Role="Colisiones">
+              <PropertyRef Name="idVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reparaciones_Conductor">
+          <End Role="Conductor" Type="Self.Conductor" Multiplicity="1" />
+          <End Role="Reparaciones" Type="Self.Reparaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conductor">
+              <PropertyRef Name="idConductor" />
+            </Principal>
+            <Dependent Role="Reparaciones">
+              <PropertyRef Name="idConductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Conductor">
+          <End Role="Conductor" Type="Self.Conductor" Multiplicity="1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conductor">
+              <PropertyRef Name="idConductor" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idConductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reparaciones_Taller">
+          <End Role="Taller" Type="Self.Taller" Multiplicity="1" />
+          <End Role="Reparaciones" Type="Self.Reparaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Taller">
+              <PropertyRef Name="idTaller" />
+            </Principal>
+            <Dependent Role="Reparaciones">
+              <PropertyRef Name="tallerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reparaciones_Vehiculo">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Reparaciones" Type="Self.Reparaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="idVehiculo" />
+            </Principal>
+            <Dependent Role="Reparaciones">
+              <PropertyRef Name="idVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Vehiculo">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="idVehiculo" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_CFVEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+          <EntitySet Name="Colisiones" EntityType="Self.Colisiones" />
+          <EntitySet Name="Conductor" EntityType="Self.Conductor" />
+          <EntitySet Name="Reparaciones" EntityType="Self.Reparaciones" />
+          <EntitySet Name="Solicitud" EntityType="Self.Solicitud" />
+          <EntitySet Name="Taller" EntityType="Self.Taller" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
+          <AssociationSet Name="FK_Bitacora_usuario" Association="Self.FK_Bitacora_usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Colisiones_Conductor" Association="Self.FK_Colisiones_Conductor">
+            <End Role="Conductor" EntitySet="Conductor" />
+            <End Role="Colisiones" EntitySet="Colisiones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Colisiones_Vehiculo" Association="Self.FK_Colisiones_Vehiculo">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Colisiones" EntitySet="Colisiones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reparaciones_Conductor" Association="Self.FK_Reparaciones_Conductor">
+            <End Role="Conductor" EntitySet="Conductor" />
+            <End Role="Reparaciones" EntitySet="Reparaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Conductor" Association="Self.FK_Solicitud_Conductor">
+            <End Role="Conductor" EntitySet="Conductor" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reparaciones_Taller" Association="Self.FK_Reparaciones_Taller">
+            <End Role="Taller" EntitySet="Taller" />
+            <End Role="Reparaciones" EntitySet="Reparaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reparaciones_Vehiculo" Association="Self.FK_Reparaciones_Vehiculo">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Reparaciones" EntitySet="Reparaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Usuario" Association="Self.FK_Solicitud_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Vehiculo" Association="Self.FK_Solicitud_Vehiculo">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_CFVModelStoreContainer" CdmEntityContainer="BD_CFVEntities">
+          <EntitySetMapping Name="Bitacora">
+            <EntityTypeMapping TypeName="BD_CFVModel.Bitacora">
+              <MappingFragment StoreEntitySet="Bitacora">
+                <ScalarProperty Name="manteId" ColumnName="manteId" />
+                <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+                <ScalarProperty Name="accion" ColumnName="accion" />
+                <ScalarProperty Name="tabla" ColumnName="tabla" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colisiones">
+            <EntityTypeMapping TypeName="BD_CFVModel.Colisiones">
+              <MappingFragment StoreEntitySet="Colisiones">
+                <ScalarProperty Name="idColision" ColumnName="idColision" />
+                <ScalarProperty Name="idConductor" ColumnName="idConductor" />
+                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+                <ScalarProperty Name="fechaColision" ColumnName="fechaColision" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="sentenciaFirme" ColumnName="sentenciaFirme" />
+                <ScalarProperty Name="avisoAccidente" ColumnName="avisoAccidente" />
+                <ScalarProperty Name="seguro" ColumnName="seguro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conductor">
+            <EntityTypeMapping TypeName="BD_CFVModel.Conductor">
+              <MappingFragment StoreEntitySet="Conductor">
+                <ScalarProperty Name="idConductor" ColumnName="idConductor" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="nombreChofer" ColumnName="nombreChofer" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="tipoLicencia" ColumnName="tipoLicencia" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="descripHabilitado" ColumnName="descripHabilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reparaciones">
+            <EntityTypeMapping TypeName="BD_CFVModel.Reparaciones">
+              <MappingFragment StoreEntitySet="Reparaciones">
+                <ScalarProperty Name="reparacionId" ColumnName="reparacionId" />
+                <ScalarProperty Name="tallerId" ColumnName="tallerId" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="costoTotal" ColumnName="costoTotal" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="montoReserva" ColumnName="montoReserva" />
+                <ScalarProperty Name="kmInicial" ColumnName="kmInicial" />
+                <ScalarProperty Name="kmFinal" ColumnName="kmFinal" />
+                <ScalarProperty Name="numFactura" ColumnName="numFactura" />
+                <ScalarProperty Name="idConductor" ColumnName="idConductor" />
+                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitud">
+            <EntityTypeMapping TypeName="BD_CFVModel.Solicitud">
+              <MappingFragment StoreEntitySet="Solicitud">
+                <ScalarProperty Name="idSolicitud" ColumnName="idSolicitud" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+                <ScalarProperty Name="idConductor" ColumnName="idConductor" />
+                <ScalarProperty Name="nombreSolicitante" ColumnName="nombreSolicitante" />
+                <ScalarProperty Name="nomDeparta" ColumnName="nomDeparta" />
+                <ScalarProperty Name="destino" ColumnName="destino" />
+                <ScalarProperty Name="justificacionSalida" ColumnName="justificacionSalida" />
+                <ScalarProperty Name="fechaSolicitud" ColumnName="fechaSolicitud" />
+                <ScalarProperty Name="fechaSalida" ColumnName="fechaSalida" />
+                <ScalarProperty Name="fechaEntrada" ColumnName="fechaEntrada" />
+                <ScalarProperty Name="numConsecutivo" ColumnName="numConsecutivo" />
+                <ScalarProperty Name="funcionarioViaja" ColumnName="funcionarioViaja" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Taller">
+            <EntityTypeMapping TypeName="BD_CFVModel.Taller">
+              <MappingFragment StoreEntitySet="Taller">
+                <ScalarProperty Name="idTaller" ColumnName="idTaller" />
+                <ScalarProperty Name="cedJuridica" ColumnName="cedJuridica" />
+                <ScalarProperty Name="nombreTaller" ColumnName="nombreTaller" />
+                <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="representante" ColumnName="representante" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="descripHabilitado" ColumnName="descripHabilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="BD_CFVModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nomUsuario" ColumnName="nomUsuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculo">
+            <EntityTypeMapping TypeName="BD_CFVModel.Vehiculo">
+              <MappingFragment StoreEntitySet="Vehiculo">
+                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="tipoLlanta" ColumnName="tipoLlanta" />
+                <ScalarProperty Name="tipoChasis" ColumnName="tipoChasis" />
+                <ScalarProperty Name="tipoMotor" ColumnName="tipoMotor" />
+                <ScalarProperty Name="tipoVehiculo" ColumnName="tipoVehiculo" />
+                <ScalarProperty Name="poliza" ColumnName="poliza" />
+                <ScalarProperty Name="comprado" ColumnName="comprado" />
+                <ScalarProperty Name="numFactura" ColumnName="numFactura" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="descripHabilitado" ColumnName="descripHabilitado" />
+                <ScalarProperty Name="donadoPor" ColumnName="donadoPor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

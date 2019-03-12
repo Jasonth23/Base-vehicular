@@ -1,0 +1,15 @@
+﻿@model IEnumerable<SCFV.Models.Vehiculo>
+@{
+    ViewBag.Title = "Vehiculos";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@foreach (var item in Model)
+{
+    <div>
+        <h4>@item.color</h4>
+        <div>@item.comprado, @item.donadoPor</div>
+        <hr />
+    </div>
+}

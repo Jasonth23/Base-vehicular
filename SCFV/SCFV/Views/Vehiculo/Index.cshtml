@@ -1,0 +1,120 @@
+﻿@model IEnumerable<SCFV.Models.Vehiculo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipoLlanta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipoChasis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipoMotor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipoVehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.poliza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comprado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.costo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.habilitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripHabilitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.donadoPor)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoLlanta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoChasis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoMotor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoVehiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.poliza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comprado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numFactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.habilitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripHabilitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.donadoPor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idVehiculo }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idVehiculo }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idVehiculo })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

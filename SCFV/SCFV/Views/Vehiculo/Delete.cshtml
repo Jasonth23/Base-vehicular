@@ -1,0 +1,144 @@
+﻿@model SCFV.Models.Vehiculo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Vehiculo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.placa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.placa)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.marca)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.marca)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.color)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.color)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tipoLlanta)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tipoLlanta)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tipoChasis)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tipoChasis)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tipoMotor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tipoMotor)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tipoVehiculo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tipoVehiculo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.poliza)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.poliza)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.comprado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.comprado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.numFactura)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.numFactura)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.costo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.costo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.habilitado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.habilitado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.descripHabilitado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.descripHabilitado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.donadoPor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.donadoPor)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

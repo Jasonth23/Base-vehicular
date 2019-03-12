@@ -1,0 +1,98 @@
+﻿@model SCFV.Models.Taller
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Taller</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.cedJuridica)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.cedJuridica)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nombreTaller)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nombreTaller)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.especialidad)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.especialidad)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ubicacion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ubicacion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.correo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.correo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.representante)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.representante)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.habilitado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.habilitado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.descripHabilitado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.descripHabilitado)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idTaller }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

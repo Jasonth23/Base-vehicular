@@ -1,0 +1,90 @@
+﻿@model IEnumerable<SCFV.Models.Taller>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cedJuridica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreTaller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.especialidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ubicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.representante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.habilitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripHabilitado)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cedJuridica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreTaller)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.especialidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ubicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.representante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.habilitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripHabilitado)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idTaller }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idTaller }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idTaller })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

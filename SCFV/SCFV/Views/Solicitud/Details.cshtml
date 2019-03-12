@@ -1,0 +1,138 @@
+﻿@model SCFV.Models.Solicitud
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Solicitud</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombreSolicitante)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nombreSolicitante)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nomDeparta)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nomDeparta)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.destino)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.destino)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.justificacionSalida)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.justificacionSalida)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaSolicitud)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fechaSolicitud)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaSalida)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fechaSalida)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaEntrada)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fechaEntrada)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.numConsecutivo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.numConsecutivo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.funcionarioViaja)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.funcionarioViaja)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.observaciones)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.observaciones)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Conductor.nombreChofer)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Conductor.nombreChofer)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Usuario.nomUsuario)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Usuario.nomUsuario)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Vehiculo.placa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Vehiculo.placa)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idSolicitud }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93eaeb51acb74af1934e430a61725078" Name="Diagram1">
+        <EntityTypeShape EntityType="BD_CFVModel.Bitacora" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_CFVModel.Colisiones" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_CFVModel.Conductor" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_CFVModel.Reparaciones" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_CFVModel.Solicitud" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_CFVModel.Taller" Width="1.5" PointX="3.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_CFVModel.Usuario" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_CFVModel.Vehiculo" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="BD_CFVModel.FK_Bitacora_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_CFVModel.FK_Colisiones_Conductor" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_CFVModel.FK_Colisiones_Vehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_CFVModel.FK_Reparaciones_Conductor" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_CFVModel.FK_Solicitud_Conductor" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_CFVModel.FK_Reparaciones_Taller" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_CFVModel.FK_Reparaciones_Vehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_CFVModel.FK_Solicitud_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_CFVModel.FK_Solicitud_Vehiculo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

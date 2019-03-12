@@ -1,0 +1,90 @@
+﻿@model SCFV.Models.Conductor
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Conductor</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.cedula)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.cedula)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nombreChofer)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nombreChofer)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaNacimiento)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fechaNacimiento)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tipoLicencia)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tipoLicencia)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.habilitado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.habilitado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.descripHabilitado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.descripHabilitado)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idConductor }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

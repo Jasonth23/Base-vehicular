@@ -1,0 +1,97 @@
+﻿@model IEnumerable<SCFV.Models.Reparaciones>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.costoTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.montoReserva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kmInicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kmFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Conductor.nombreChofer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taller.cedJuridica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculo.placa)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costoTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.montoReserva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kmInicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kmFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numFactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conductor.nombreChofer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Taller.cedJuridica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehiculo.placa)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.reparacionId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.reparacionId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.reparacionId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

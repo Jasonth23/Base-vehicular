@@ -1,0 +1,82 @@
+﻿@model SCFV.Models.Colisiones
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Colisiones</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaColision)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fechaColision)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sentenciaFirme)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sentenciaFirme)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.avisoAccidente)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.avisoAccidente)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.seguro)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.seguro)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Conductor.nombreChofer)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Conductor.nombreChofer)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Vehiculo.placa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Vehiculo.placa)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idColision }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
